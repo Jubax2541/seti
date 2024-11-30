@@ -1,0 +1,98 @@
+<p><strong>Term&iacute;n odevzd&aacute;n&iacute;:</strong> <strong>06.11.2023 11:59:59</strong> &nbsp; <strong>Pozdn&iacute; odevzd&aacute;n&iacute; s penalizac&iacute;:</strong> <strong>31.12.2023 23:59:59</strong> (Pen&aacute;le za pozdn&iacute; odevzd&aacute;n&iacute;: 100.0000 %) <strong>Hodnocen&iacute;:</strong> <strong>5.0000</strong> <strong>Max. hodnocen&iacute;:</strong> <strong>5.0000</strong> (bez bonusů) <strong>Odevzdan&aacute; ře&scaron;en&iacute;:</strong> 7 / 20 Voln&eacute; pokusy + 10 Penalizovan&eacute; pokusy (-10 % penalizace za každ&eacute; odevzd&aacute;n&iacute;) <strong>N&aacute;povědy:</strong> 1 / 2 Voln&eacute; n&aacute;povědy + 2 Penalizovan&eacute; n&aacute;povědy (-10 % penalizace za každou n&aacute;povědu)</p>
+<hr>
+<p>&Uacute;kolem je vytvořit program, kter&yacute; bude analyzovat vys&iacute;l&aacute;n&iacute; mimozemsk&yacute;ch civilizac&iacute;.</p>
+<p>Radioastronomům se podařilo zachytit zpr&aacute;vy mimozemsk&yacute;ch civilizac&iacute;. Konečně. Zpr&aacute;vy přich&aacute;zej&iacute; od hvězd, kter&eacute; maj&iacute; podobn&eacute; charakteristiky, jako Slunce. Nen&iacute; pochyb.</p>
+<p>Probl&eacute;m je zpr&aacute;vy dek&oacute;dovat. Překvapivě, k&oacute;dov&aacute;n&iacute; v&scaron;ech zpr&aacute;v je stejn&eacute; (mimozemsk&yacute; UNICODE), nav&iacute;c, od jedn&eacute; hvězdy přich&aacute;z&iacute; ta sam&aacute; zpr&aacute;va st&aacute;le dokola. Jednou z ot&aacute;zek je, zda se zpr&aacute;vy někdy sesynchronizuj&iacute;, tedy, zda v nějak&eacute;m okamžiku budeme přij&iacute;mat v&scaron;echny zpr&aacute;vy od jejich zač&aacute;tku.</p>
+<p>Vstupem programu jsou dvě nebo v&iacute;ce zpr&aacute;v. Každ&aacute; zpr&aacute;va je zadan&aacute; na jedn&eacute; ř&aacute;dce jako posloupnost p&iacute;smen mal&eacute; abecedy. Každ&eacute; p&iacute;smeno určuje d&eacute;lku zachycen&eacute;ho pulzu: a=1, b=2, c=4, d=8, e=16, ... D&aacute;le je na vstupu znak |, kter&yacute; určuje zač&aacute;tek zpr&aacute;vy. Tedy vstup v podobě:</p>
+<pre>ea|babab
+</pre>
+<p>představuje zpr&aacute;vu s pulzy d&eacute;lky 16, 1, 2, 1, 2, 1 a 2. Celkov&aacute; d&eacute;lka zpr&aacute;vy je 16 + 1 + 2 + 1 + 2 + 1 + 2=25 časov&yacute;ch jednotek. Zpr&aacute;va je zaznamenan&aacute; tak, že do jej&iacute;ho konce zb&yacute;v&aacute; je&scaron;tě 16+1=17 časov&yacute;ch jednotek.</p>
+<p>Program takto dostane na sv&eacute;m vstupu několik zpr&aacute;v, každ&aacute; zpr&aacute;va může m&iacute;t různou d&eacute;lku a aktu&aacute;ln&iacute; pozice v každ&eacute; zpr&aacute;vě tak&eacute; může b&yacute;t jin&aacute;. Program urč&iacute;, zda dojde k synchronizaci ve v&scaron;ech zpr&aacute;v&aacute;ch a kdy k tomu dojde. Např&iacute;klad pro vstup:</p>
+<pre>ea|babab
+d|abaca
+</pre>
+<p>dojde k synchronizaci za 42 jednotek času:</p>
+<pre>ea|  bababea|          = 42
+d|   abacad|abacad|    = 42
+</pre>
+<p>Vstupem programu jsou přij&iacute;man&eacute; zpr&aacute;vy ve form&aacute;tu popsan&eacute;m v&yacute;&scaron;e. Zpr&aacute;vy jsou nejm&eacute;ně dvě. Pro z&aacute;kladn&iacute; testy jsou na vstupu pouze dvě zpr&aacute;vy, bonusov&eacute; testy zad&aacute;vaj&iacute; v&iacute;ce zpr&aacute;v na vstupu.</p>
+<p>V&yacute;stupem programu je vypočten&aacute; informace, kdy se vstupn&iacute; zpr&aacute;vy sesynchronizuj&iacute;. Pro někter&eacute; vstupy se může st&aacute;t, že se zpr&aacute;vy nikdy nesesynchronizuj&iacute;, v t&eacute;to situaci je zobrazena jin&aacute; odpověď (viz uk&aacute;zky).</p>
+<p>Pokud je vstup neplatn&yacute;, program to mus&iacute; detekovat a zobrazit chybov&eacute; hl&aacute;&scaron;en&iacute;. Chybov&eacute; hl&aacute;&scaron;en&iacute; zobrazujte na standardn&iacute; v&yacute;stup (ne na chybov&yacute; v&yacute;stup). Za chybu považujte:</p>
+<ul>
+<li>m&eacute;ně než dvě vstupn&iacute; zpr&aacute;vy,</li>
+<li>zpr&aacute;va nem&aacute; spr&aacute;vn&yacute; form&aacute;t (nesm&iacute; b&yacute;t pr&aacute;zdn&aacute;, mus&iacute; obsahovat pouze p&iacute;smena mal&eacute; abecedy a pr&aacute;vě jeden znak kolm&iacute;tko).</li>
+</ul>
+<p><strong>Uk&aacute;zka pr&aacute;ce programu:</strong></p>
+<hr>
+<pre><strong>Zpravy:</strong>
+ea|babab
+d|abaca
+<strong>Synchronizace za: 42</strong>
+</pre>
+<hr>
+<pre><strong>Zpravy:</strong>
+acacbbaaa|
+cbbcabcbbaa|
+<strong>Synchronizace za: 0</strong>
+</pre>
+<hr>
+<pre><strong>Zpravy:</strong>
+|acabbaaa
+|dcbabaaaa
+<strong>Synchronizace za: 0</strong>
+</pre>
+<hr>
+<pre><strong>Zpravy:</strong>
+acacbbaa|baa
+bcaabaa|baaa
+<strong>Synchronizace za: 216</strong>
+</pre>
+<hr>
+<pre><strong>Zpravy:</strong>
+cbbcbaa|aaaa
+aadaaaabaaa|abaa
+<strong>Nelze dosahnout.</strong>
+</pre>
+<hr>
+<pre><strong>Zpravy:</strong>
+dbdccdccbbbbaa|aaaa
+bebbaedbcabbaa|ccbaa
+<strong>Synchronizace za: 276</strong>
+</pre>
+<hr>
+<pre><strong>Zpravy:</strong>
+jfddiaggfdffaagfacafcfbbbgdcddbfaedfeaacfeadcbabbaaa|hdccdfdbfadcdbbcbbaa
+bhfdigdbggfadfdddacceaedbefeacbacaacbbbaa|cdcgebfichfbgcbjbhdfadgheifheceeehiceeedfbgcgaggfdaadacbdeccbaadbbabaa
+<strong>Synchronizace za: 5046543</strong>
+</pre>
+<hr>
+<pre><strong>Zpravy:</strong>
+acacbb|aaa
+cbbcabcbbaa
+<strong>Nespravny vstup.</strong>
+</pre>
+<hr>
+<pre><strong>Zpravy:</strong>
+acacbb|aaa
+cbbc abcb|baa
+<strong>Nespravny vstup.</strong>
+</pre>
+<hr>
+<p><strong>Pozn&aacute;mky:</strong></p>
+<ul>
+<li>Uk&aacute;zkov&eacute; běhy zachycuj&iacute; oček&aacute;van&eacute; v&yacute;pisy Va&scaron;eho programu (tučn&eacute; p&iacute;smo) a vstupy zadan&eacute; uživatelem (z&aacute;kladn&iacute; p&iacute;smo). Zv&yacute;razněn&iacute; tučn&yacute;m p&iacute;smem je použit&eacute; pouze zde na str&aacute;nce zad&aacute;n&iacute;, aby byl v&yacute;pis l&eacute;pe čiteln&yacute;. V&aacute;&scaron; program m&aacute; za &uacute;kol pouze zobrazit text bez zv&yacute;razňov&aacute;n&iacute; (bez HTML markupu).</li>
+<li>Znak odř&aacute;dkov&aacute;n&iacute; (\n) je i za posledn&iacute; ř&aacute;dkou v&yacute;stupu (i za př&iacute;padn&yacute;m chybov&yacute;m hl&aacute;&scaron;en&iacute;m).</li>
+<li>&Uacute;lohu lze vyře&scaron;it bez použit&iacute; funkc&iacute;. Pokud ale spr&aacute;vně použijete funkce, bude program přehledněj&scaron;&iacute; a bude se sn&aacute;ze ladit.</li>
+<li>Nen&iacute; potřeba alokovat pole. Pr&aacute;ce s polem &uacute;lohu zbytečně zkomplikuje. Vstupy lze nač&iacute;tat průběžně a ukl&aacute;dat si pouze agregovan&eacute; hodnoty.</li>
+<li>Pro nač&iacute;t&aacute;n&iacute; vstupu se hod&iacute; funkce <tt>scanf</tt> s form&aacute;tem <tt>%c</tt> nebo funkce <tt>fgetc</tt>.</li>
+<li>Hodnocen&iacute; připou&scaron;t&iacute; různě dokonal&aacute; ře&scaron;en&iacute;, podle &uacute;rovně ře&scaron;en&iacute; budou přidělen&eacute; body nav&iacute;c:
+<ul>
+<li>prvn&iacute; bonus z&iacute;sk&aacute; ře&scaron;en&iacute;, kter&eacute; dok&aacute;že pracovat s v&iacute;ce než dvojic&iacute; zpr&aacute;v na vstupu,</li>
+<li>druh&yacute; bonus z&iacute;sk&aacute; ře&scaron;en&iacute;, kter&eacute; použije efektivn&iacute; algoritmus v&yacute;počtu, a dok&aacute;že rychle pracovat i pro dlouh&eacute; zpr&aacute;vy,</li>
+<li>třet&iacute; bonus z&iacute;sk&aacute; ře&scaron;en&iacute;, kter&eacute; použije efektivn&iacute; algoritmus v&yacute;počtu, a dok&aacute;že rychle pracovat i pro velmi dlouh&eacute; zpr&aacute;vy.</li>
+</ul>
+</li>
+<li>Pro v&yacute;počty v z&aacute;kladn&iacute;ch testech stač&iacute; datov&yacute; typ <tt>int</tt>. Pro zvl&aacute;dnut&iacute; druh&eacute;ho a třet&iacute;ho bonusu je potřeba pracovat s velk&yacute;mi č&iacute;sly, kter&aacute; překračuj&iacute; rozsah typu <tt>int</tt>. Doporučen&yacute; je datov&yacute; typ <tt>long int</tt> nebo <tt>long long int</tt>. Pro zvl&aacute;dnut&iacute; třet&iacute;ho bonusu (a s někter&yacute;mi algoritmy i pro druh&yacute; bonus) budete dokonce muset ukl&aacute;dat meziv&yacute;sledky v typu <tt>__int128_t</tt> (tento typ je nestandardn&iacute;, m&aacute; rozsah 128 bitů, neexistuje pro něj standardn&iacute; vstupn&iacute; a v&yacute;stupn&iacute; konverze, ale lze jej použ&iacute;t v aritmetick&yacute;ch operac&iacute;ch).</li>
+</ul>
+<hr>
+<div>&nbsp;</div>
